@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Business Card Generator</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Business Card Generator</h1>
+		<div id="theme-toggle">
+			<label>
+				<input type="checkbox" id="themSwitch"> Dark Mode
+			</label>
+		</div>
+
+		<form id="cardForm">
+			<input type="file" id="photoUpload" accept="image/*">
+			<input type="text" id="name" placeholder="Full Name" required>
+			<input type="text" id="title" placeholder="Job Title" required>
+			<input type="email" id="email" placeholder="Email" required>
+			<input type="text" id="phone" placeholder="Phone" required>
+			<input type="text" id="company" placeholder="Company" required>
+			<button type="submit">Generate Card</button>
+		<button type="button" id="saveCard">Save</button>
+		<button type="button" id="download">Download</button>
+		</form>
+		<div id="card" class="card hidden">
+			<img id="displayPhoto" src="" class="photo"/>
+			<h2 id="displayName"></h2>
+			<h4 id="displayTitle"></h4>
+			<p><strong>Email:</strong><span id="displayEmail"></span></p>
+			<p><strong>Phone:</strong><span id="displayPhone"></span></p>
+			<p><strong>Company:</strong><span id="displayCompany"></span></p>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	<!--Import All JS Modules-->
+	<script type="module">
+		import {renderCard} from './scripts/CardRenderer.js';
+		import {initTheme} from './scripts/ThemeManager.js'
+		import {saveData, loadData} from './scripts/StorageManager.js'
+		import {downloadCard} from './scripts/ExportManager.js'
+        import {template} from './scripts/TemplateSelector.js'
+		initTheme()
+
+		// Handle Card Form
+		document.getElementById('cardForm').addEventListener('submit',(e) => {
+			e.preventDefault()
+			renderCard()
+		})
+
+		// Save and Load
+		document.getElementById('saveCard').addEventListener('click',saveData);
+		window.addEventListener('load', loadData)
+
+		// Download
+		document.getElementById('download').addEventListener('click',downloadCard)
+	</script>
+</body>
+</html>
