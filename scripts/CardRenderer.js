@@ -4,7 +4,7 @@ export function renderCard(){
 	const email = document.getElementById('email').value;
 	const phone = document.getElementById('phone').value;
 	const company = document.getElementById('company').value;
-	const photoInput = document.getElementById('photoUpload').value;
+	const photoInput = document.getElementById('photoUpload');
 
 	const card = document.getElementById('card');
 	card.classList.remove('hidden');
