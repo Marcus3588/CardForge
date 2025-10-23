@@ -22,4 +22,5 @@ export function renderCard(){
 		}
 		reader.readAsDataURL(photoInput.files[0]);
 	}
+	
 }

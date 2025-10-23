@@ -22,6 +22,8 @@
 			<input type="email" id="email" placeholder="Email" required>
 			<input type="text" id="phone" placeholder="Phone" required>
 			<input type="text" id="company" placeholder="Company" required>
+
+			<input type="url" id="website" placeholder="website or resume Link">
 			<button type="submit">Generate Card</button>
 		<button type="button" id="saveCard">Save</button>
 		<button type="button" id="download">Download</button>
@@ -33,6 +35,7 @@
 			<p><strong>Email:</strong><span id="displayEmail"></span></p>
 			<p><strong>Phone:</strong><span id="displayPhone"></span></p>
 			<p><strong>Company:</strong><span id="displayCompany"></span></p>
+			<div id="qrcode" class="qrcode"></div>
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
